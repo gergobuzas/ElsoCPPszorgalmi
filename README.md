@@ -32,10 +32,9 @@ Beolvasáshoz ajánlott a `std::ifstream` használata, hasonlóan használható,
 Minden egyes sorban pontosan egyszer fordulhatnak elő valahol az ACGT betűk, így nem lehet olyan, hogy egy állapotból több állapotba is tudnánk menni egy bázis hatására vagy nem tudnánk eldönteni hova kellene lépni (= az automata determinisztikus és teljes).
 
 ## Skeleton program
-A beadáshoz készetettem egy testprogramot (*genetika_teszt*.cpp) és megadtam, hogy az **Allapotgep** osztály miyen publikus interfésszel rendelkezik 
-(*allapotgep.h*):
+A beadáshoz készetettem egy tesztprogramot (*genetika_teszt.cpp*) és az `allapogep.h` fájlban megadtam, hogy az **Allapotgep** osztály miyen publikus interfésszel rendelkezik:
 ```c++
-// A bázisokhoz tartozó enum.
+// A bázisokhoz tartozó felsorolás típus.
 enum Bazis {
     Adenin, Citozin, Guanin, Timin
 };
@@ -57,12 +56,12 @@ public:
     void alaphelyzet();
 };
 ```
-Két globális függvényt is készítettem az enum kezeléséhez (`cast`-`cast`), ami a `char -> Bazis` és `Bazis -> char` konverziót segíti elő. 
+Két globális függvényt is készítettem az enum kezeléséhez, ami a `char -> Bazis` és `Bazis -> char` konverziót segíti elő. 
 
-A megolshoz az **Allapotgep** belső logikája, mezői szabadon megváltoztathatóak, a publikus interfész azonben nem változtatható és nem bővíthető. Új osztályok azonban szabadon felvehetők az `allapothep.h` fájlba. Tipikusan legalább még 1-2 osztály felvétele szükséges a szép megoldáshoz. Az osztályok tagfüggvényeit `allapotgep.cpp` fájlban kell megvalósítani.
+A megoldáshoz az **Allapotgep** belső logikája, mezői szabadon megváltoztathatóak, a publikus interfész azonban nem, és nem is bővíthető. Szükség esetén új osztályok szabadon felvehetők az`allapothep.h` fájlba. (Tipikusan legalább még 1-2 osztály felvétele szükséges a szép megoldáshoz.) Az osztályok tagfüggvényeit az `allapotgep.cpp` fájlban kell megvalósítani.
 
 
-A `konfigural(const char* fajlnev)` függvény kivételt dob, ha a fájlt nem lehet megnyitni, a kivétel során a neptun kódodat kell eldobni.  A konfiguráció minden esetben a fenti leírásnak megfelelő, más hibakezelést nem kell támogatni.
+A `konfigural(const char* fajlnev)` függvény kivételt dob, ha a fájlt nem lehet megnyitni, a kivétel során a neptun kódodat kell eldobni.  A konfiguráció minden esetben a fenti leírásnak megfelelő, más hibakezelést nem kell megvalósítani.
 
 ## Példa
 A konfigurációs fájl:
@@ -80,8 +79,8 @@ Ezen fájlhoz tartozó állapotgép diagramja:
 Példa bemenet: `{Adenin, Guanin, Timin, Citozin, Citozin, Timin}`, ekkor elfogadunk. Ezen bemenet végeztével az `aktualisallapot()` függvény `ParosTimin` karakterláncot adja vissza.
 
 ## Megoldás
-A Git tárolóból letölthető [https://git.ik.bme.hu/Prog2/szorgalmi_feladat/genetike](https://git.ik.bme.hu/Prog2/szorgalmi_feladat/genetika)
-fájlok felhasználásával hozzon létre a lokális fejlesztőkörnyezetében egy C++ projektet! Ehhez felhasználhatja a *Makefile* -t, amiben megtalálja a fordítási opciókat. Tervezzen, fejlesszen, teszteljen, majd adja tölse fel a megoldását a Jporta rendszerbe! 
+A Git tárolóból letölthető [https://git.ik.bme.hu/Prog2/szorgalmi_feladatok/genetika](https://git.ik.bme.hu/Prog2/szorgalmi_feladatok/genetika)
+fájlok felhasználásával hozz létre a lokális fejlesztőkörnyezetedben egy C++ projektet! Ehhez felhasználható a *Makefile*, amiben megtalálhatók a fordítási opciók. Tervezz, fejlessz, tesztelj, majd töltsd fel a megoldását a Jporta rendszerbe! 
 
 ## Beadás
-Beadandó az `allapotgep.cpp` és `allapotgep.h`, a genetika_teszt.cpp kell beadni, az a teszteléshez van. A Jporta nagyon hasonló módon fog tesztelni.
+Beadandó az `allapotgep.cpp` és `allapotgep.h` fajl. A genetika_teszt.cpp-t nem kell beadni, az a teszteléshez van. A Jporta nagyon hasonló programal fog tesztelni.
