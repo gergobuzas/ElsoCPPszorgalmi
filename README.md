@@ -58,7 +58,7 @@ public:
 ```
 Két globális függvényt is készítettem az enum kezeléséhez, ami a `char -> Bazis` és `Bazis -> char` konverziót segíti elő. 
 
-A megoldáshoz az **Allapotgep** belső logikája, mezői szabadon megváltoztathatóak, a publikus interfész azonban nem, és nem is bővíthető. Szükség esetén új osztályok szabadon felvehetők az`allapothep.h` fájlba. (Tipikusan legalább még 1-2 osztály felvétele szükséges a szép megoldáshoz.) Az osztályok tagfüggvényeit az `allapotgep.cpp` fájlban kell megvalósítani.
+A megoldáshoz az **Allapotgep** belső logikája, mezői szabadon megváltoztathatóak, a publikus interfész azonban nem, és nem is bővíthető. Szükség esetén új osztályok szabadon felvehetők az`allapotgep.h` fájlba. (Tipikusan legalább még 1-2 osztály felvétele szükséges a szép megoldáshoz.) Az osztályok tagfüggvényeit az `allapotgep.cpp` fájlban kell megvalósítani.
 
 
 A `konfigural(const char* fajlnev)` függvény kivételt dob, ha a fájlt nem lehet megnyitni, a kivétel során a **neptun** kódodat kell eldobni.  A konfiguráció minden esetben a fenti leírásnak megfelelő, más hibakezelést nem kell megvalósítani.
