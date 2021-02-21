@@ -25,14 +25,14 @@ A_2 | A_2->A_1  | A_2->A_2 | ... | A_2->A_N |
 ... | ...  | ... | ... | ... |
 A_N | A_N->A_1  | A_N->A_2 | ... | A_N->A_N |
 
-Az első sor (A_1-hez tartozó) a mátrixban az első állapotból induló átmeneteket mutatja az előző felsorolás sorrendjében, mely bemeneti bázis esetén mely állapotba kerül onnan az automata. A mátrix 2. (A_2) sorában és 3. (A_3) oszlopában találhatóak azon bázisok, melyek hatására a 2. állapotból a 3.-ba kell kerüljön az automata... A celábban a bázisok a rövidítésekkel vannak feltüntetve elválasztó jelek nélkül (pl. CAT), a mátrix soraiban több és eltérő db szóköz gondoskodik a szeparálásról. Ha valahol nincs átmenet, ott nulla ('0') szerepel.
+Az első sor (A_1-hez tartozó) a mátrixban az első állapotból induló átmeneteket mutatja az előző felsorolás sorrendjében, mely bemeneti bázis esetén mely állapotba kerül onnan az automata. A mátrix 2. (A_2) sorában és 3. (A_3) oszlopában találhatóak azon bázisok, melyek hatására a 2. állapotból a 3.-ba kell kerüljön az automata... A celábban a bázisok a rövidítésekkel vannak feltüntetve elválasztó jelek nélkül (pl. CAT), a mátrix soraiban több és eltérő db szóköz gondoskodik a szeparálásról. Ha valahol nincs átmenet, ott nulla (`'0'`) szerepel.
 
-Beolvasáshoz ajánlott a `std::ifstream` használata, hasonlóan használható, mint az `std::cin`, azaz `>>`-val történő beolvaásákor eldobja a felesleges whitespace-eket.
+Beolvasáshoz ajánlott a `std::ifstream` használata, hasonlóan használható, mint az `std::cin`, azaz `>>`-val történő beolvasáskor eldobja a felesleges whitespace-eket.
 
 Minden egyes sorban pontosan egyszer fordulhatnak elő valahol az ACGT betűk, így nem lehet olyan, hogy egy állapotból több állapotba is tudnánk menni egy bázis hatására vagy nem tudnánk eldönteni hova kellene lépni (= az automata determinisztikus és teljes).
 
 ## Skeleton program
-A beadáshoz készetettem egy tesztprogramot (*genetika_teszt.cpp*) és az `allapogep.h` fájlban megadtam, hogy az **Allapotgep** osztály miyen publikus interfésszel rendelkezik:
+A beadáshoz készetettem egy tesztprogramot (*genetika_teszt.cpp*) és az `allapotgep.h` fájlban megadtam, hogy az **Allapotgep** osztály miyen publikus interfésszel rendelkezik:
 ```c++
 // A bázisokhoz tartozó felsorolás típus.
 enum Bazis {
@@ -61,7 +61,7 @@ Két globális függvényt is készítettem az enum kezeléséhez, ami a `char -
 A megoldáshoz az **Allapotgep** belső logikája, mezői szabadon megváltoztathatóak, a publikus interfész azonban nem, és nem is bővíthető. Szükség esetén új osztályok szabadon felvehetők az`allapothep.h` fájlba. (Tipikusan legalább még 1-2 osztály felvétele szükséges a szép megoldáshoz.) Az osztályok tagfüggvényeit az `allapotgep.cpp` fájlban kell megvalósítani.
 
 
-A `konfigural(const char* fajlnev)` függvény kivételt dob, ha a fájlt nem lehet megnyitni, a kivétel során a neptun kódodat kell eldobni.  A konfiguráció minden esetben a fenti leírásnak megfelelő, más hibakezelést nem kell megvalósítani.
+A `konfigural(const char* fajlnev)` függvény kivételt dob, ha a fájlt nem lehet megnyitni, a kivétel során a **neptun** kódodat kell eldobni.  A konfiguráció minden esetben a fenti leírásnak megfelelő, más hibakezelést nem kell megvalósítani.
 
 ## Példa
 A konfigurációs fájl:
@@ -76,11 +76,13 @@ Ezen fájlhoz tartozó állapotgép diagramja:
 
 ![állapotgép](statechart.png) 
 
-Példa bemenet: `{Adenin, Guanin, Timin, Citozin, Citozin, Timin}`, ekkor elfogadunk. Ezen bemenet végeztével az `aktualisallapot()` függvény `ParosTimin` karakterláncot adja vissza.
+Példa bemenet: `{Adenin, Guanin, Timin, Citozin, Citozin, Timin}`, ekkor elfogadunk. Ezen bemenet végeztével az `aktualisallapot()` függvény `"ParosTimin"` karakterláncot adja vissza.
+
+Vizsgáld meg az `implikacio.txt` fájlt is! Rajzold fel a hozzá tartozó diagramot, ha szükséges.
 
 ## Megoldás
 A Git tárolóból letölthető [https://git.ik.bme.hu/Prog2/szorgalmi_feladatok/genetika](https://git.ik.bme.hu/Prog2/szorgalmi_feladatok/genetika)
 fájlok felhasználásával hozz létre a lokális fejlesztőkörnyezetedben egy C++ projektet! Ehhez felhasználható a *Makefile*, amiben megtalálhatók a fordítási opciók. Tervezz, fejlessz, tesztelj, majd töltsd fel a megoldását a Jporta rendszerbe! 
 
 ## Beadás
-Beadandó az `allapotgep.cpp` és `allapotgep.h` fajl. A genetika_teszt.cpp-t nem kell beadni, az a teszteléshez van. A Jporta nagyon hasonló programal fog tesztelni.
+Beadandó az `allapotgep.cpp` és `allapotgep.h` fajl. A `genetika_teszt.cpp`-t nem kell beadni, az a teszteléshez van. A Jporta nagyon hasonló programal fog tesztelni.

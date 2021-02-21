@@ -47,7 +47,7 @@ public:
     void atmenet(Bazis b);
 
     //a lánc feldolgozás után elfogadunk-e
-    bool feldolgoz(Bazis *b, int n);
+    bool feldolgoz(const Bazis *b, int n);
 
     //konfig fájl beolvasása
     void konfigural(const char* fajlnev);
