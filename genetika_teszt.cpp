@@ -80,7 +80,7 @@ int main() {
 
     /// Itt a vége
     if (ELKESZULT < 3)
-      ADD_FAILURE() << "\nNem futott minden testeset!" << std::endl;
+      ADD_FAILURE() << "\nNem futott minden teszteset!" << std::endl;
 
     GTEND(std::cerr); // Csak C(J)PORTA működéséhez kell
     return 0;
