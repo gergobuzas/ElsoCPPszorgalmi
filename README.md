@@ -51,7 +51,7 @@ public:
     //beérkező bázis hatására, mi történjen
     void atmenet(Bazis b);
     //a lánc feldolgozás után elfogadunk-e, nem áll vissza alaphelyzetbe
-    bool feldolgoz(Bazis *b, int n);
+    bool feldolgoz(const Bazis *b, int n);
     //visszaállítás a kezdő állapotba
     void alaphelyzet();
 };
