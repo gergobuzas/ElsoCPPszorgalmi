@@ -1,7 +1,7 @@
 /**
  * \file allapotgep.cpp
  *
- * Ebben a fájlban kell megvalósítania az Allapotgép osztány
+ * Ebben a fájlban kell megvalósítania az Allapotgep osztály
  * metódusait, valamint mindazon további osztályokat, melyek szükségesek
  * a feladat megvalósításához.
  *

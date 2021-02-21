@@ -1,9 +1,8 @@
 # Egy kis genetika
 **Szorgalmi feladat Karsa Zoltántól**. (extra pont: 2)
 
-# Egy kis genetika
-
 Genetikai kódunkat a következő 4 bázis alkotja: 
+
  * Adenin (A)
  * Citozin (C)
  * Guanin (G)
@@ -41,18 +40,19 @@ enum Bazis {
 // Állapotgép publikis interfésze
 class Allapotgep {
 public:
-    //konfig fájl beolvasása, ha a fájl nem létezik/nem lehet megnyitni eldobja a NEPTUN-kódot
-    //újra felépíti az állapotgépet, a korábbit törli ha volt
+    // Konfig fájl beolvasása. Ha a fájl nem létezik/nem lehet megnyitni eldobja a NEPTUN-kódot.
+    // Újra felépíti az állapotgépet, a korábbit törli ha volt. Kezdő állapotba áll.
     void konfigural(const char* fajlnev);
-    //visszaadja melyik állapot aktív 
+    // Visszaadja melyik állapot aktív. 
     const char* aktualisallapot();
-    //éppen elfogadó állapotban van az állapotgép
+    // Elfogadó állapotban van-e az állapotgép.
     bool elfogad();
-    //beérkező bázis hatására, mi történjen
+    // Az aktuális állapotnak és inputnak megfelelő következő állapotba léptet.
     void atmenet(Bazis b);
-    //a lánc feldolgozás után elfogadunk-e, nem áll vissza alaphelyzetbe
+    // Feldolgozza a paraméterként kapott bázissorozatot.
+    // Visszaadja, hogy elfogadó állapotba került-e. (Nem áll vissza kezdő állapotba.)
     bool feldolgoz(const Bazis *b, int n);
-    //visszaállítás a kezdő állapotba
+    // Kezdő állapotba visz
     void alaphelyzet();
 };
 ```

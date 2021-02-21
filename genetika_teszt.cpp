@@ -35,7 +35,7 @@ int main() {
     #endif // ELKESZULT > 0
 
     #if ELKESZULT > 1
-    /// Azt vizsgálja, hogy be tudja-e olvasni a konfiguráiós fájlt
+    /// Azt vizsgálja, hogy be tudja-e olvasni a konfigurációs fájlt
         TEST(ParosTrimin, fajbolkonfig1) {
             Allapotgep gep;
             ASSERT_NO_THROW(gep.konfigural("paros.txt"));
