@@ -15,8 +15,7 @@
 #ifndef ALLAPOTGEP_H
 #define ALLAPOTGEP_H
 
-#include <ctype.h>
-#include <cstring>
+#include <locale>
 #include <iostream>
 #include <exception>
 
@@ -84,7 +83,8 @@ public:
  * @return Bazis enum kontans
  */
 inline Bazis cast(char b) {
-    char k =  tolower(b);
+    std::locale loc;
+    char k = std::tolower(b, loc);
     Bazis ret;
     switch(k) {
         case 'a': ret = Adenin; break;
@@ -111,8 +111,10 @@ inline char cast(Bazis b, bool upper = true) {
         case Guanin: ret = 'g'; break;
         case Timin: ret = 't'; break;
     }
-    if(upper)
-        ret = toupper(ret);
+    if(upper) {
+        std::locale loc;
+        ret = std::toupper(ret, loc);
+    }
     return ret;
 }
 
