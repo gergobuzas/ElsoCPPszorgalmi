@@ -1,5 +1,5 @@
 # Egy kis genetika
-**Szorgalmi feladat Karsa Zoltántól**. (extra pont: 2)
+**Szorgalmi feladat Karsa Zoltántól**. (extra pont: 3)
 
 Genetikai kódunkat a következő 4 bázis alkotja: 
 
